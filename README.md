@@ -11,7 +11,6 @@ This project is a backend system to manage company assets, employees, asset allo
 - SQLite
 - JWT Authentication
 - Pytest
-
 ## Features
 - User Register and Login
 - JWT Token Authentication
