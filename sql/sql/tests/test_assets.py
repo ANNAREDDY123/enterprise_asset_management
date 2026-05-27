@@ -17,5 +17,4 @@ def test_register_user():
             "role": "Admin"
         }
     )
-
     assert response.status_code in [200, 400]
