@@ -1,0 +1,249 @@
+{
+  "info": {
+    "name": "Enterprise Asset Management System",
+    "description": "Postman collection for Enterprise Asset Management FastAPI project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Home API",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/"
+      }
+    },
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\",\n  \"role\": \"Admin\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Add Department",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/departments",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"department_name\": \"IT\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Add Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/employees",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employee_name\": \"Rahul\",\n  \"email\": \"rahul@example.com\",\n  \"department_id\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "Add Asset",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/assets",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"asset_name\": \"Dell Laptop\",\n  \"asset_type\": \"Laptop\",\n  \"serial_number\": \"DL12345\",\n  \"purchase_cost\": 55000\n}"
+        }
+      }
+    },
+    {
+      "name": "View Assets",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/assets"
+      }
+    },
+    {
+      "name": "Update Asset",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/assets/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Available\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Soft Delete Asset",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/assets/1"
+      }
+    },
+    {
+      "name": "Assign Asset",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/allocate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"asset_id\": 1,\n  \"employee_id\": 1,\n  \"assigned_date\": \"2026-05-15\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Return Asset",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/return/1"
+      }
+    },
+    {
+      "name": "Asset History",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/asset-history/1"
+      }
+    },
+    {
+      "name": "Raise Maintenance",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/maintenance",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"asset_id\": 1,\n  \"issue_description\": \"Battery issue\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Update Maintenance",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_TOKEN_HERE"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://127.0.0.1:8000/maintenance/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maintenance_status\": \"Completed\",\n  \"cost\": 2500\n}"
+        }
+      }
+    }
+  ]
+}
